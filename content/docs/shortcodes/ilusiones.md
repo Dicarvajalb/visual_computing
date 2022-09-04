@@ -34,7 +34,6 @@ Blehx3
     
 {{< /p5-global-iframe >}}
 
+# Muevanse a la pagina 2
 
-## Resultados
-
-## Discusion
+{{< button relref="/illusionesP2" >}}Siguiente Pagina{{< /button >}}
