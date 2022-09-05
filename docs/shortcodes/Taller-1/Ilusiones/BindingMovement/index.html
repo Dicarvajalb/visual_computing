@@ -1,0 +1,156 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Movimiento Enlazado # Problem statement # La presente ilusión muestra 4 líneas aparentemente moviéndose de forma independiente, sin embargo, al revisarlas de forma extensiva se puede notar que se mueven en pares ordenados paralelos. La figura que describe este movimiento corresponde a un rombo el cual posee sus vértices ocultos;
+Al hacer que los vértices sean visibles se puede notar como el tenerlos ocultos crea el movimiento ilusorio.
+¿Como interactuar con la ilusión?"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Movimiento Enlazado # Problem statement # La presente ilusión muestra 4 líneas aparentemente moviéndose de forma independiente, sin embargo, al revisarlas de forma extensiva se puede notar que se mueven en pares ordenados paralelos. La figura que describe este movimiento corresponde a un rombo el cual posee sus vértices ocultos;
+Al hacer que los vértices sean visibles se puede notar como el tenerlos ocultos crea el movimiento ilusorio.
+¿Como interactuar con la ilusión?"><meta property="og:type" content="article"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-1/Ilusiones/BindingMovement/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T22:37:36-05:00"><title>Binding Movement | Showcase Template</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
+<script defer src=/visual_computing/en.search.min.910cbc2575899ebd1c8800955a0dfa6a918f3adaf2bb489810d5e60d06d54bb4.js integrity="sha256-kQy8JXWJnr0ciACVWg36apGPOtryu0iYENXmDQbVS7Q=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/visual_computing/><span>Showcase Template</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-543c92395a5da43e568c54aed57a7bf6 class=toggle checked>
+<label for=section-543c92395a5da43e568c54aed57a7bf6 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/>Taller 1</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Convoluciones/>Convoluciones</a></li><li><input type=checkbox id=section-eb58e35b3307a51faa32e78ab05d9c64 class=toggle checked>
+<label for=section-eb58e35b3307a51faa32e78ab05d9c64 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/>Ilusiones</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/BindingMovement/ class=active>Binding Movement</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SKE/>Ske</a></li></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Lightness/>Lightness</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Multiplicacion-RGB/>Multiplicacion Rgb</a></li></ul></li></ul></li></ul><ul><li><a href=/visual_computing/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/visual_computing/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Binding Movement</strong>
+<label for=toc-control><img src=/visual_computing/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#movimiento-enlazado>Movimiento Enlazado</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#code>Code</a></li><li><a href=#conclusions>Conclusions</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=movimiento-enlazado>Movimiento Enlazado
+<a class=anchor href=#movimiento-enlazado>#</a></h1><hr><h2 id=problem-statement>Problem statement
+<a class=anchor href=#problem-statement>#</a></h2><p>La presente ilusión muestra 4 líneas aparentemente moviéndose de forma <em>independiente</em>, sin embargo, al revisarlas de forma extensiva se puede notar que se mueven en pares ordenados paralelos. La figura que describe este movimiento corresponde a un rombo el cual posee sus vértices ocultos;</p><p>Al hacer que los vértices sean visibles se puede notar como el tenerlos ocultos crea el movimiento ilusorio.</p><blockquote class="book-hint info"><strong>¿Como interactuar con la ilusión?</strong><br>Para visibilizar las figuras que desmontan la ilusión es necesario marcar
+el checkbox <strong>&ldquo;Visible&rdquo;</strong> , el Slider que se encuentra permite cambiar la
+visibilidad <em>&ldquo;Alpha&rdquo;</em> de las figuras.</blockquote><h2 id=code>Code
+<a class=anchor href=#code>#</a></h2><iframe id=sketchid style=width:625px;height:625px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+    let bgColor = 200, checkbox;
+    function setup() {
+      createCanvas(600,600);
+      angleMode(DEGREES);
+      rectMode(CENTER);
+    
+      //transparency
+      slider = createSlider(20, 255, 100);
+      slider.position(10, 10);
+      slider.style('width', '80px');
+    
+      //Squares Transparency
+      checkbox = createCheckbox('Visible', false);
+      checkbox.position(10,40);
+
+    }
+
+    function drawSquares(visible){
+      let xAxis = 150;
+      let yAxis = 150;
+      let size = 120;
+    
+      rotate(45);
+    
+      if(!checkbox.checked()){
+        fill(bgColor);
+        noStroke()
+      }else{
+        let alpha = slider.value();
+        fill(0,100,100,alpha);
+        noStroke();
+      }
+    
+      rect(xAxis,-yAxis,size,size);
+      rect(-xAxis,yAxis,size,size);
+      rect(xAxis,yAxis,size,size);
+      rect(-xAxis,-yAxis,size,size);
+    }
+
+    function mainSquare(){
+      translate(p5.Vector.fromAngle(millis()/500,40));
+      let bSize = 300;
+      rotate(45);
+      fill(bgColor)
+      stroke(0, 0, 255);
+      strokeWeight(6);
+      rect(0,0,bSize,bSize);
+    }
+
+    function draw() {
+      background(bgColor);
+      translate(width/2,height/2);
+    
+      push();
+      mainSquare();
+      pop();
+    
+      drawSquares(false);
+    }
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+<details><summary><strong>CODIGO:</strong> Movimiento Enlazado</summary><div class=markdown-inner><p><strong>C</strong>odigo generado usando el editor web de <strong>P5.js</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>bgColor</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span>, <span style=color:#a6e22e>checkbox</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>600</span>,<span style=color:#ae81ff>600</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>angleMode</span>(<span style=color:#a6e22e>DEGREES</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rectMode</span>(<span style=color:#a6e22e>CENTER</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#75715e>//transparency
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>slider</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>slider</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>slider</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;80px&#39;</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#75715e>//Squares Transparency
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>checkbox</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createCheckbox</span>(<span style=color:#e6db74>&#39;Visible&#39;</span>, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>checkbox</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>40</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawSquares</span>(<span style=color:#a6e22e>visible</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>xAxis</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>150</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>yAxis</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>150</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>size</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>120</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rotate</span>(<span style=color:#ae81ff>45</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span><span style=color:#a6e22e>checkbox</span>.<span style=color:#a6e22e>checked</span>()){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>bgColor</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>noStroke</span>()
+</span></span><span style=display:flex><span>      }<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>alpha</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>slider</span>.<span style=color:#a6e22e>value</span>();
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>100</span>,<span style=color:#a6e22e>alpha</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>xAxis</span>,<span style=color:#f92672>-</span><span style=color:#a6e22e>yAxis</span>,<span style=color:#a6e22e>size</span>,<span style=color:#a6e22e>size</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>xAxis</span>,<span style=color:#a6e22e>yAxis</span>,<span style=color:#a6e22e>size</span>,<span style=color:#a6e22e>size</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>xAxis</span>,<span style=color:#a6e22e>yAxis</span>,<span style=color:#a6e22e>size</span>,<span style=color:#a6e22e>size</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>xAxis</span>,<span style=color:#f92672>-</span><span style=color:#a6e22e>yAxis</span>,<span style=color:#a6e22e>size</span>,<span style=color:#a6e22e>size</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>mainSquare</span>(){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>translate</span>(<span style=color:#a6e22e>p5</span>.<span style=color:#a6e22e>Vector</span>.<span style=color:#a6e22e>fromAngle</span>(<span style=color:#a6e22e>millis</span>()<span style=color:#f92672>/</span><span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>40</span>));
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>bSize</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>300</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rotate</span>(<span style=color:#ae81ff>45</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>bgColor</span>)
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>stroke</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>6</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>bSize</span>,<span style=color:#a6e22e>bSize</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>background</span>(<span style=color:#a6e22e>bgColor</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>translate</span>(<span style=color:#a6e22e>width</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>,<span style=color:#a6e22e>height</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mainSquare</span>();
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>drawSquares</span>(<span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></div></div></details><hr><h2 id=conclusions>Conclusions
+<a class=anchor href=#conclusions>#</a></h2><p>Para el ojo inexperto el movimiento puede resultar complejo ya que la ilusion cumple con el objetivo y de primera mano da a enter que tras ella se requieren calculos y codigos complejos para obtener la sincronizacion. Sin embargo, el desarrollo del ejercicio permite entender como la manipulacion geometrica y de factores como perspectiva y velocidad permiten generar animaciones complejas.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/cb5d84272a9b3809f0937a0999dc17bf190c5d20 title='Last modified by Brayan Portela | September 5, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
+<span>September 5, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#movimiento-enlazado>Movimiento Enlazado</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#code>Code</a></li><li><a href=#conclusions>Conclusions</a></li></ul></li></ul></nav></div></aside></main></body></html>
