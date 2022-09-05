@@ -1,0 +1,190 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Paso a paso # Problem statement # Tambien llamada Stepping feet, es una ilusión visual de percepción de movimiento. Esta muestra dos pies, uno azul y otro amarillo, que se mueven horizontalmente a través de un paisaje que consta de rayas blancas y negras. Aunque ambos pies se mueven a una velocidad constante, su velocidad percibida es distinta.
+¿Como interactuar con la ilusión?
+Para cambiar la velocidad de las figuras se usa el primer slider, para cambiar la relación baras/pie se usa el segundo slider y para mover o detener los pies se debe clickear la casilla de move."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Paso a paso # Problem statement # Tambien llamada Stepping feet, es una ilusión visual de percepción de movimiento. Esta muestra dos pies, uno azul y otro amarillo, que se mueven horizontalmente a través de un paisaje que consta de rayas blancas y negras. Aunque ambos pies se mueven a una velocidad constante, su velocidad percibida es distinta.
+¿Como interactuar con la ilusión?
+Para cambiar la velocidad de las figuras se usa el primer slider, para cambiar la relación baras/pie se usa el segundo slider y para mover o detener los pies se debe clickear la casilla de move."><meta property="og:type" content="article"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SteppingFeet/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-05T04:57:36-05:00"><title>Stepping Feet | Showcase Template</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
+<script defer src=/visual_computing/en.search.min.0c46083983e25e6b2e8dd8067b58fea448a75510f50e2b407e2252c8b891feaa.js integrity="sha256-DEYIOYPiXmsujdgGe1j+pEinVRD1DitAfiJSyLiR/qo=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/visual_computing/><span>Showcase Template</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-543c92395a5da43e568c54aed57a7bf6 class=toggle checked>
+<label for=section-543c92395a5da43e568c54aed57a7bf6 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/>Taller 1</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Convoluciones/>Convoluciones</a></li><li><input type=checkbox id=section-eb58e35b3307a51faa32e78ab05d9c64 class=toggle checked>
+<label for=section-eb58e35b3307a51faa32e78ab05d9c64 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/>Ilusiones</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/BindingMovement/>Binding Movement</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SKE/>Ske</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SteppingFeet/ class=active>Stepping Feet</a></li></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Lightness/>Lightness</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Multiplicacion-RGB/>Multiplicacion Rgb</a></li></ul></li></ul></li></ul><ul><li><a href=/visual_computing/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/visual_computing/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Stepping Feet</strong>
+<label for=toc-control><img src=/visual_computing/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#paso-a-paso>Paso a paso</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#code>Code</a></li><li><a href=#conclusions>Conclusions</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=paso-a-paso>Paso a paso
+<a class=anchor href=#paso-a-paso>#</a></h1><hr><h2 id=problem-statement>Problem statement
+<a class=anchor href=#problem-statement>#</a></h2><p>Tambien llamada Stepping feet, es una ilusión visual de percepción de movimiento. Esta muestra dos pies, uno azul y otro amarillo, que se mueven horizontalmente a través de un paisaje que consta de rayas blancas y negras. Aunque ambos pies se mueven a una velocidad constante, su velocidad percibida es distinta.</p><blockquote class="book-hint info"><strong>¿Como interactuar con la ilusión?</strong><br>Para cambiar la velocidad de las figuras se usa el primer slider, para cambiar la relación baras/pie se usa el segundo slider y para mover o detener los pies se debe clickear la casilla de move.</blockquote><h2 id=code>Code
+<a class=anchor href=#code>#</a></h2><iframe id=stepping_feet style=width:625px;height:625px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script src=/visual_computing/sketches/stepping_feet.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+<details><summary><strong>CODIGO:</strong> Movimiento Enlazado</summary><div class=markdown-inner><p><strong>C</strong>odigo generado usando el editor web de <strong>P5.js</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>canvasWidth</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>600</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>canvasHeight</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>400</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>quantity</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>positionYBar1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>canvasHeight</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>positionYBar2</span> <span style=color:#f92672>=</span> (<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#a6e22e>canvasHeight</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>widthBar</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>80</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>heightBar</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>40</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>colorBar1</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;yellow&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>colorBar2</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;blue&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>isMove</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>sliderSpeed</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>canvasWidth</span>, <span style=color:#a6e22e>canvasHeight</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#e6db74>&#39;white&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawLayout</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawBoard</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>updateSpeed</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawBar1</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawBar2</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawBoard</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>position</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>quantity</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sliderQuantity</span>.<span style=color:#a6e22e>value</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>realLines</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>canvasWidth</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>widthBar</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>quantity</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>widthLine</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>widthBar</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>quantity</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numberLines</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>realLines</span> <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>?</span> <span style=color:#a6e22e>realLines</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>:</span> <span style=color:#a6e22e>realLines</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>numberLines</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>widthLine</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>i</span> <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#39;black&#39;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>position</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>widthLine</span>, <span style=color:#a6e22e>canvasHeight</span>);
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#39;white&#39;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>position</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>widthLine</span>, <span style=color:#a6e22e>canvasHeight</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawBar1</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>colorBar1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>positionXBar1</span>, <span style=color:#a6e22e>positionYBar1</span>, <span style=color:#a6e22e>widthBar</span>, <span style=color:#a6e22e>heightBar</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>moveBarRight</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>speed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>widthBar</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>canvasWidth</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>-=</span> <span style=color:#a6e22e>speed</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawBar2</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>colorBar2</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>positionXBar1</span>, <span style=color:#a6e22e>positionYBar2</span>, <span style=color:#a6e22e>widthBar</span>, <span style=color:#a6e22e>heightBar</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>moveBarRight</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>speed</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>widthBar</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>canvasWidth</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>-=</span> <span style=color:#a6e22e>speed</span>;
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>updateSpeed</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>isMove</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sliderSpeed</span>.<span style=color:#a6e22e>value</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawLayout</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//Reset button
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>button</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createButton</span>(<span style=color:#e6db74>&#39;Reset&#39;</span>);   
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>440</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>button</span>.<span style=color:#a6e22e>mousePressed</span>(() =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>canvasWidth</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>600</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>canvasHeight</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>400</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>quantity</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>positionXBar1</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>positionYBar1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>canvasHeight</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>positionXBar2</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>positionYBar2</span> <span style=color:#f92672>=</span> (<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#a6e22e>canvasHeight</span>) <span style=color:#f92672>/</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>widthBar</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>80</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>heightBar</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>40</span>;
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>moveBarRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//Move checkbox
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>checkbox</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createCheckbox</span>(<span style=color:#e6db74>&#39;Move&#39;</span>, <span style=color:#a6e22e>isMove</span>); 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>checkbox</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>470</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>checkbox</span>.<span style=color:#a6e22e>mousePressed</span>(() =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>speed</span> <span style=color:#f92672>===</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>isMove</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sliderSpeed</span>.<span style=color:#a6e22e>value</span>();
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>isMove</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>speed</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//Slider speed
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>sliderSpeed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sliderSpeed</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sliderSpeed</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;80px&#39;</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//Slider quantity
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>sliderQuantity</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sliderQuantity</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>540</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sliderQuantity</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;80px&#39;</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//Change color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>sel</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSelect</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>40</span>, <span style=color:#ae81ff>580</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;blue-yellow&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;red-green&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;grey&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;kiwi&#39;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sel</span>.<span style=color:#a6e22e>changed</span>((<span style=color:#a6e22e>value</span>) =&gt; {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>switch</span>(<span style=color:#a6e22e>value</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;blue-yellow&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar1</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;yellow&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar2</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;blue&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;red-green&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar1</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;green&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar2</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;red&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#39;grey&#39;</span><span style=color:#f92672>:</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar1</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;white&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>colorBar2</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;black&#39;</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    });
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><hr><h2 id=conclusions>Conclusions
+<a class=anchor href=#conclusions>#</a></h2><p>La clave de esta ilusión es el contraste, ya que cuando hay un mayor contraste entre el pie y el fondo, el pie se hace visible más facilmente y da una sensación de movimiento rapido mientras que cuando el contraste es bajo, el pie es más dificil de diferenciar del fondo y parecer ir más lento. Esta ilusió demuestra que el fondo de un objeto puede tener un efecto significativo en su velocidad percibida.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/35fd8ecf2a19eae7536bbe1047b24b53ad74bb8e title='Last modified by acardenasor | September 5, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
+<span>September 5, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#paso-a-paso>Paso a paso</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#code>Code</a></li><li><a href=#conclusions>Conclusions</a></li></ul></li></ul></nav></div></aside></main></body></html>
