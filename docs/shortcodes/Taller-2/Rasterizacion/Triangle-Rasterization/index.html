@@ -1,0 +1,215 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Triangle rasterization # La rasterización es el proceso por el cual una imagen se transforma en un conjunto de pixeles, los cuales pueden ser mostrados a traves de una salida digital. Este procedimiento incluye el uso de diferentes algoritmos dependiendo de la figura que se vaya a rasterizar.
+Por ejemplo para razterizar un triangulo se necesita el desarrollo de dos pasos:
+Capturar su figura Recorrer su figura a traves de los pixeles Para el primer paso es necesario verificar si el triangulo encaja en alguna de las siguientes opciones:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Triangle rasterization # La rasterización es el proceso por el cual una imagen se transforma en un conjunto de pixeles, los cuales pueden ser mostrados a traves de una salida digital. Este procedimiento incluye el uso de diferentes algoritmos dependiendo de la figura que se vaya a rasterizar.
+Por ejemplo para razterizar un triangulo se necesita el desarrollo de dos pasos:
+Capturar su figura Recorrer su figura a traves de los pixeles Para el primer paso es necesario verificar si el triangulo encaja en alguna de las siguientes opciones:"><meta property="og:type" content="article"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/Triangle-Rasterization/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-10-19T09:25:35-05:00"><title>Triangle Rasterization | Grupo de estudio</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
+<script defer src=/visual_computing/en.search.min.608673950bae0f50a3e54f6f9e2508adbd48a76d90e66406ec5983ef666f4ca7.js integrity="sha256-YIZzlQuuD1Cj5U9vniUIrb1Ip22Q5mQG7FmD72ZvTKc=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/visual_computing/><span>Grupo de estudio</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-543c92395a5da43e568c54aed57a7bf6 class=toggle>
+<label for=section-543c92395a5da43e568c54aed57a7bf6 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/>Taller 1</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Convoluciones/>Convoluciones</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Histograma/>Histograma</a></li><li><input type=checkbox id=section-eb58e35b3307a51faa32e78ab05d9c64 class=toggle>
+<label for=section-eb58e35b3307a51faa32e78ab05d9c64 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/>Ilusiones</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/BindingMovement/>Binding Movement</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SKE/>Ske</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SteppingFeet/>Stepping Feet</a></li></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Lightness/>Lightness</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Multiplicacion-RGB/>Multiplicacion Rgb</a></li></ul></li><li><input type=checkbox id=section-3339356ac915f37974c010a9ff982b95 class=toggle checked>
+<label for=section-3339356ac915f37974c010a9ff982b95 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/>Taller 2</a></label><ul><li><input type=checkbox id=section-aec318664ee87e724026f45da2e6fe01 class=toggle>
+<label for=section-aec318664ee87e724026f45da2e6fe01 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/>Aplicacion 3 D</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/Laberinto/>Laberinto</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/LaberintoP2/>Laberinto P2</a></li></ul></li><li><input type=checkbox id=section-3e0f43450c6fe10e0095878dad3831f3 class=toggle checked>
+<label for=section-3e0f43450c6fe10e0095878dad3831f3 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/>Rasterizacion</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/Midpoint-Circle-Algorithm/>Midpoint Circle Algorithm</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/Triangle-Rasterization/ class=active>Triangle Rasterization</a></li></ul></li></ul></li></ul></li></ul><ul><li><a href=/visual_computing/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/visual_computing/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Triangle Rasterization</strong>
+<label for=toc-control><img src=/visual_computing/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#triangle-rasterization>Triangle rasterization</a><ul><li><a href=#formulas>Formulas</a></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=triangle-rasterization>Triangle rasterization
+<a class=anchor href=#triangle-rasterization>#</a></h1><p>La rasterización es el proceso por el cual una imagen se transforma en un conjunto de pixeles, los cuales pueden ser mostrados a traves de una salida digital. Este procedimiento incluye el uso de diferentes algoritmos dependiendo de la figura que se vaya a rasterizar.</p><p>Por ejemplo para razterizar un triangulo se necesita el desarrollo de dos pasos:</p><ul><li>Capturar su figura</li><li>Recorrer su figura a traves de los pixeles</li></ul><p>Para el primer paso es necesario verificar si el triangulo encaja en alguna de las siguientes opciones:</p><p><img src=https://brakeza.com/wp-content/uploads/2018/12/concepto_rasterizacio%CC%81n.png alt></p><p>Si no encaja en la figura BottomFlat o TopFlat, el triangulo debera partirse en dos como muestra la siguiente imagen:</p><p><img src=https://docs.hektorprofe.net/cdn/graficos3d/image-49.png alt></p><p>De manera que los triangulos resultantes sean de tipo BottomFlat o TopFlat.</p><p>Posteriormente se determinan los valores de x por donde pasa el triangulo, de forma que si el triangulo es de tipo BottomFlat, se recorra linea por linea de arriba abajo, y de izquierda a derecha y si es de tipo TopFlat de abajo hacia arriba y de izquierda a derecha.</p><h2 id=formulas>Formulas
+<a class=anchor href=#formulas>#</a></h2><p>La formula para determinar los valores de x antes mencionada es dependiente del tipo, asi con pa, pb y pc como puntos del triangulo, las formulas serian las siguientes:</p><ul><li><p>BottomFlat
+<link rel=stylesheet href=/visual_computing/katex/katex.min.css><script defer src=/visual_computing/katex/katex.min.js></script>
+<script defer src=/visual_computing/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[ ext1 = (pb.x - pa.x) / (pb.y - pa.y);
+ext2 = (pc.x - pa.x) / (pc.y - pa.y);
+\]</span></p></li><li><p>TopFlat
+<span>\[ ext1 = (pc.x - pa.x) / (pc.y - pa.y);
+ext2 = (pc.x - pb.x) / (pc.y - pb.y);
+\]</span></p><p>Donde ext1 representa el expremo izquierdo de la fila y ext1 representa el expremo derecho de la fila que contiene el triangulo.</p></li></ul><details><summary>Raterization algorithm</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n1</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n2</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>420</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n3</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>258</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n4</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>420</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n5</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>486</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>n6</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>275</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>space</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>p1</span>, <span style=color:#a6e22e>p2</span>, <span style=color:#a6e22e>p3</span>, <span style=color:#a6e22e>p4</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>puntos</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>x</span>,<span style=color:#a6e22e>y</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>beads</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>beadSize</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>cols</span>, <span style=color:#a6e22e>rows</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>num</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>621</span>, <span style=color:#ae81ff>621</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cols</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ceil</span>(<span style=color:#ae81ff>621</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>rows</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ceil</span>(<span style=color:#ae81ff>621</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>beads</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Array(<span style=color:#a6e22e>cols</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>x</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>cols</span>; <span style=color:#a6e22e>x</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>beads</span>[<span style=color:#a6e22e>x</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Array(<span style=color:#a6e22e>rows</span>).<span style=color:#a6e22e>fill</span>(<span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>organizeTriangle</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>clasifyTriangle</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>40</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawGrid</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>paint</span>(<span style=color:#a6e22e>num</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>x</span>,   <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>y</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stroke</span>(<span style=color:#e6db74>&#34;red&#34;</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawBeads</span>(<span style=color:#a6e22e>columnainicial</span>, <span style=color:#a6e22e>columnafinal</span>,<span style=color:#a6e22e>filas</span>){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>filasm</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>filas</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>columnainicialm</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>columnainicial</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//fill(0);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>179</span>, <span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>columnainicialm</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>columnafinal</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>j</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>filas</span>; <span style=color:#a6e22e>j</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>filasm</span>; <span style=color:#a6e22e>j</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>square</span>(<span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>beadSize</span>, <span style=color:#a6e22e>j</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>beadSize</span>, <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>drawGrid</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stroke</span>(<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>x</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>621</span>; <span style=color:#a6e22e>x</span><span style=color:#f92672>+=</span> <span style=color:#a6e22e>beadSize</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>x</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>x</span>, <span style=color:#ae81ff>621</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>y</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>621</span>; <span style=color:#a6e22e>y</span><span style=color:#f92672>+=</span> <span style=color:#a6e22e>beadSize</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>line</span>(<span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>621</span>, <span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>organizeTriangle</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>p1</span><span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n1</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n2</span>
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>p2</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n3</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n4</span>
+</span></span><span style=display:flex><span>  };
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>p3</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n5</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>n6</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>puntos</span> <span style=color:#f92672>=</span> [<span style=color:#a6e22e>p1</span>, <span style=color:#a6e22e>p2</span>, <span style=color:#a6e22e>p3</span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>3</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>j</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>j</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>2</span>; <span style=color:#a6e22e>j</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>i</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>j</span><span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span> ){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>punto</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>i</span>];
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>i</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>j</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>puntos</span>[<span style=color:#a6e22e>j</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> ] <span style=color:#f92672>=</span> <span style=color:#a6e22e>punto</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>x</span> <span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>x</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>punto</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>];
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>];
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>punto</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>clasifyTriangle</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>y</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>num</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  } <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>num</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>num</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> ((<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span>) <span style=color:#f92672>/</span> (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>y</span>)) <span style=color:#f92672>*</span> (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>].<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>x</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>].<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>p4</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>x</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>y</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//scanBottomFlatTriangle(puntos[0], puntos[1], p4);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//scanTopFlatTriangle(p4, puntos[1], puntos[2]);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>scanTopFlatTriangle</span>(<span style=color:#a6e22e>pa</span>, <span style=color:#a6e22e>pb</span>, <span style=color:#a6e22e>pc</span>){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>invslope1</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>/</span> (<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>invslope2</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>/</span> (<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>curx1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>x</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>curx2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>x</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>y</span>; <span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>y</span>;<span style=color:#a6e22e>scanlineY</span><span style=color:#f92672>--</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>scanLine</span>(<span style=color:#a6e22e>curx1</span>, <span style=color:#a6e22e>curx2</span>, <span style=color:#a6e22e>scanlineY</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>curx1</span> <span style=color:#f92672>-=</span> <span style=color:#a6e22e>invslope1</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>curx2</span> <span style=color:#f92672>-=</span> <span style=color:#a6e22e>invslope2</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>scanBottomFlatTriangle</span>(<span style=color:#a6e22e>pa</span>, <span style=color:#a6e22e>pb</span>, <span style=color:#a6e22e>pc</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>invslope1</span> <span style=color:#f92672>=</span> parseInt((<span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>/</span> (<span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>y</span>));
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>invslope2</span> <span style=color:#f92672>=</span> parseInt((<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>x</span>) <span style=color:#f92672>/</span> (<span style=color:#a6e22e>pc</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>y</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>curx1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>x</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>curx2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>x</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pa</span>.<span style=color:#a6e22e>y</span>; <span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>&lt;=</span> <span style=color:#a6e22e>pb</span>.<span style=color:#a6e22e>y</span>;<span style=color:#a6e22e>scanlineY</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>scanLine</span>(<span style=color:#a6e22e>curx1</span>, <span style=color:#a6e22e>curx2</span>, <span style=color:#a6e22e>scanlineY</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>curx1</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>invslope1</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>curx2</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>invslope2</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>scanLine</span>(<span style=color:#a6e22e>curx1</span>, <span style=color:#a6e22e>curx2</span>, <span style=color:#a6e22e>scanlineY</span>){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>curx1</span> <span style=color:#f92672>=</span> parseInt(<span style=color:#a6e22e>curx1</span><span style=color:#f92672>/</span> <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>curx2</span> <span style=color:#f92672>=</span> parseInt(<span style=color:#a6e22e>curx2</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>=</span> parseInt(<span style=color:#a6e22e>scanlineY</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>beadSize</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>curx1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>curx2</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>scanlineY</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>drawBeads</span>(<span style=color:#a6e22e>curx1</span>, <span style=color:#a6e22e>curx2</span>,<span style=color:#a6e22e>scanlineY</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>paint</span>(<span style=color:#a6e22e>num</span>){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>num</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>scanBottomFlatTriangle</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>]);
+</span></span><span style=display:flex><span>  }<span style=color:#66d9ef>else</span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>num</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>2</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>scanTopFlatTriangle</span>(<span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>puntos</span>[<span style=color:#ae81ff>2</span>]);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><iframe id=rasterization_2 style=width:646px;height:646px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js></script>
+            
+            
+            
+            
+            
+            <script src=/visual_computing/sketches/rasterization_2.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h2 id=referencias>Referencias
+<a class=anchor href=#referencias>#</a></h2><p><a href="https://brakeza.com/rasterizacion-del-triangulo#:~:text=El%20t%C3%A9rmino%20bajo%20el%20que,el%20interior%20de%20un%20tri%C3%A1ngulo">https://brakeza.com/rasterizacion-del-triangulo#:~:text=El%20t%C3%A9rmino%20bajo%20el%20que,el%20interior%20de%20un%20tri%C3%A1ngulo</a>.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/dc0c448b7b93dc773e440d289f3905c039f7e7ae title='Last modified by acardenasor | October 19, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
+<span>October 19, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#triangle-rasterization>Triangle rasterization</a><ul><li><a href=#formulas>Formulas</a></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></div></aside></main></body></html>
