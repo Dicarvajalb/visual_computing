@@ -18,7 +18,7 @@ De manera que los triangulos resultantes sean de tipo BottomFlat o TopFlat.
 
 Posteriormente se determinan los valores de x por donde pasa el triangulo, de forma que si el triangulo es de tipo BottomFlat, se recorra linea por linea de arriba abajo, y de izquierda a derecha y si es de tipo TopFlat de abajo hacia arriba y de izquierda a derecha.
 
-## Formulas
+  ## Formulas
 La formula para determinar los valores de x antes mencionada es dependiente del tipo, asi con pa, pb y pc como puntos del triangulo, las formulas serian las siguientes:
 
 - BottomFlat
@@ -214,3 +214,8 @@ function paint(num){
 {{< /details >}}
 
 {{< p5-iframe sketch="/visual_computing/sketches/rasterization_2.js" width="646" height="646" >}}
+
+  ## Referencias
+  
+  https://brakeza.com/rasterizacion-del-triangulo#:~:text=El%20t%C3%A9rmino%20bajo%20el%20que,el%20interior%20de%20un%20tri%C3%A1ngulo.
+
