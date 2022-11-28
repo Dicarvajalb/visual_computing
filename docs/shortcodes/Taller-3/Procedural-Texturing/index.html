@@ -1,0 +1,160 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Procedural Texturing # Problem statement # El texturizado procedimental es un método para generar texturas superficiales utilizando procedimientos o algoritmos matemáticos. Esta tecnica tiene muchas ventajas como: el bajo costo de almacenamiento, la resolución ilimitada de texturas y el facil mapeo de texturas.
+Este metodo tiene varios usos como: crear efectos esteticos, aumentar el agarre mecanico, disminuir la resistencia aerodinamica y modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-3/Procedural-Texturing/"><title>Procedural Texturing | Grupo de estudio</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
+<script defer src=/visual_computing/en.search.min.c0f970a2439918ea3d11a6853e5b4facbaf5321e659296b1c5f97a2ff90596bc.js integrity="sha256-wPlwokOZGOo9EaaFPltPrLr1Mh5lkpaxxfl6L/kFlrw=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-3/Procedural-Texturing/index.xml title="Grupo de estudio"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/visual_computing/><span>Grupo de estudio</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-543c92395a5da43e568c54aed57a7bf6 class=toggle>
+<label for=section-543c92395a5da43e568c54aed57a7bf6 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/>Taller 1</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Convoluciones/>Convoluciones</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Histograma/>Histograma</a></li><li><input type=checkbox id=section-eb58e35b3307a51faa32e78ab05d9c64 class=toggle>
+<label for=section-eb58e35b3307a51faa32e78ab05d9c64 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/>Ilusiones</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/BindingMovement/>Binding Movement</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SKE/>Ske</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Ilusiones/SteppingFeet/>Stepping Feet</a></li></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Lightness/>Lightness</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Multiplicacion-RGB/>Multiplicacion Rgb</a></li></ul></li><li><input type=checkbox id=section-3339356ac915f37974c010a9ff982b95 class=toggle>
+<label for=section-3339356ac915f37974c010a9ff982b95 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/>Taller 2</a></label><ul><li><input type=checkbox id=section-aec318664ee87e724026f45da2e6fe01 class=toggle>
+<label for=section-aec318664ee87e724026f45da2e6fe01 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/>Aplicacion 3 D</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/Laberinto/>Laberinto</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-2/Aplicacion-3-D/LaberintoP2/>Laberinto P2</a></li></ul></li><li><input type=checkbox id=section-3e0f43450c6fe10e0095878dad3831f3 class=toggle>
+<label for=section-3e0f43450c6fe10e0095878dad3831f3 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/>Rasterizacion</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/Midpoint-Circle-Algorithm/>Midpoint Circle Algorithm</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-2/Rasterizacion/Triangle-Rasterization/>Triangle Rasterization</a></li></ul></li></ul></li><li><input type=checkbox id=section-2ca353e3df535ce80038f727e7c5ac85 class=toggle checked>
+<label for=section-2ca353e3df535ce80038f727e7c5ac85 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-3/>Taller 3</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-3/Ambient-Light/>Ambient Light</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Coloring/>Coloring</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Image-Processing/>Image Processing</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Non-Euclidean-Geometry/>Non Euclidean Geometry</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Photomosaic/>Photomosaic</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Procedural-Texturing/ class=active>Procedural Texturing</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Spatial-Coherence/>Spatial Coherence</a><ul></ul></li><li><a href=/visual_computing/docs/shortcodes/Taller-3/Texturing/>Texturing</a><ul></ul></li></ul></li></ul></li></ul><ul><li><a href=/visual_computing/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/visual_computing/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Procedural Texturing</strong>
+<label for=toc-control><img src=/visual_computing/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural Texturing</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#background>Background</a></li><li><a href=#code>Code</a></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=procedural-texturing>Procedural Texturing
+<a class=anchor href=#procedural-texturing>#</a></h1><h2 id=problem-statement>Problem statement
+<a class=anchor href=#problem-statement>#</a></h2><p>El texturizado procedimental es un método para generar texturas superficiales utilizando procedimientos o algoritmos matemáticos. Esta tecnica tiene muchas ventajas como: el bajo costo de almacenamiento, la resolución ilimitada de texturas y el facil mapeo de texturas.</p><p>Este metodo tiene varios usos como: crear efectos esteticos, aumentar el agarre mecanico, disminuir la resistencia aerodinamica y modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros.</p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Ahora bien, para aplicar una textura por medio del Procedural Texturing se necesita primero las coordenadas de textura, estas son las coordenadas de los vértices del objeto en un espacio 2D, que generalmente llamamos st o espacio de textura.Estas nos brindan un marco de referencia con el que podemos trabajar y crear todo tipo de patrones 2D, es decir que a lo largo del eje x, generalmente denotamos las coordenadas s y a lo largo del eje y las coordenadas t.</p><p>Dicho lo anterior para asignar un elemento de la textura a un elemento de pantalla se buscan las coordenadas de textura de ese elemento tomando al espacio de textura como un espacio de coordenadas entre (0,0) y (1,1) como se muestra en la siguiente imagen:</p><p><img src=https://learn.microsoft.com/en-us/windows/win32/direct3d9/images/uvcoordinates.jpg alt></p><p>Esto se da para que una misma coordenada de textura se pueda asignar a diferentes texturas, como se ve en la siguiente imagen:</p><p><img src=https://learn.microsoft.com/en-us/windows/win32/direct3d9/images/texadr1.png alt></p><p>Donde la coordenada de textura es (0.5,1.0) y las texturas tienen diferentes tamaños por lo que la textura 1, se le asigna a texel (2,4) y La textura 2 se asigna a texel (3,6).</p><p>La explicación simplificada del proeso de asignación de coordenadas de textura a espacio de pantalla se muestra en la siguiente imagen:</p><p><img src=https://www.scratchapixel.com/images/upload/shading-intro/shad-texturecoord.png? alt></p><p>En este ejemplo, un píxel, que se muestra a la izquierda de la ilustración, se idealiza en un cuadrado de color. Las direcciones de las cuatro esquinas del píxel se asignan a la primitiva 3D en el espacio del objeto(La forma del píxel a menudo se distorsiona debido a la forma de la primitiva en el espacio 3D y al ángulo de visión), las esquinas del área de la superficie de la primitiva que corresponden a las esquinas del píxel se mapean en el espacio de textura. El proceso de mapeo vuelve a distorsionar la forma del píxel, lo cual es común. El valor de color final del píxel se calcula a partir de los téxeles en la región a la que se asigna el píxel.</p><h2 id=code>Code
+<a class=anchor href=#code>#</a></h2><p>A continuación algunos ejemplos:</p><p>Aplicamos el siguiente patron a una esfera:</p><p><img src=/visual_computing/imgs/patron.JPG alt></p><p>Resultado:</p><iframe id=procedural_texturing style=width:620px;height:620px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js></script>
+            
+            
+            
+            
+            
+            <script src=/visual_computing/sketches/procedural_texturing.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+<details><summary><strong>CODIGO:</strong> Esfera.frag</summary><div class=markdown-inner><p><strong>C</strong>odigo generado usando el editor web de <strong>P5.js</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>ifdef</span> <span style=color:#a6e22e>GL_ES</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>endif</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>define</span> <span style=color:#a6e22e>PI</span> <span style=color:#ae81ff>3.14159265358979323846</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>u_resolution</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>u_time</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>rotate2D</span> (<span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>_st</span>, <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>_angle</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>-=</span> <span style=color:#ae81ff>0.5</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>=</span>  <span style=color:#a6e22e>mat2</span>(<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>_angle</span>),<span style=color:#f92672>-</span><span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>_angle</span>),
+</span></span><span style=display:flex><span>                <span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>_angle</span>),<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>_angle</span>)) <span style=color:#f92672>*</span> <span style=color:#a6e22e>_st</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>0.5</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>_st</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>tile</span> (<span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>_st</span>, <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>_zoom</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>*=</span> <span style=color:#a6e22e>_zoom</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>fract</span>(<span style=color:#a6e22e>_st</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>rotateTilePattern</span>(<span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>_st</span>){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>*=</span> <span style=color:#ae81ff>4.0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//  Give each cell an index number
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//  according to its position
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>index</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>index</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>step</span>(<span style=color:#ae81ff>1.</span>, <span style=color:#a6e22e>mod</span>(<span style=color:#a6e22e>_st</span>.<span style=color:#a6e22e>x</span>,<span style=color:#ae81ff>2.0</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>index</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>step</span>(<span style=color:#ae81ff>1.</span>, <span style=color:#a6e22e>mod</span>(<span style=color:#a6e22e>_st</span>.<span style=color:#a6e22e>y</span>,<span style=color:#ae81ff>2.0</span>))<span style=color:#f92672>*</span><span style=color:#ae81ff>2.0</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>_st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>fract</span>(<span style=color:#a6e22e>_st</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>index</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1.0</span>){
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//  Rotate cell 1 by -90 degrees
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>_st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>rotate2D</span>(<span style=color:#a6e22e>_st</span>,<span style=color:#a6e22e>PI</span><span style=color:#f92672>*-</span><span style=color:#ae81ff>0.5</span>);
+</span></span><span style=display:flex><span>    }<span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>index</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>2.0</span>){
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//  Rotate cell 2 by -90 degrees
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#a6e22e>_st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>rotate2D</span>(<span style=color:#a6e22e>_st</span>,<span style=color:#a6e22e>PI</span><span style=color:#f92672>*-</span><span style=color:#ae81ff>0.5</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>_st</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>void</span>) {
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>gl_FragCoord</span>.<span style=color:#a6e22e>xy</span><span style=color:#f92672>/</span><span style=color:#a6e22e>u_resolution</span>.<span style=color:#a6e22e>xy</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>tile</span>(<span style=color:#a6e22e>st</span>,<span style=color:#ae81ff>3.0</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>rotateTilePattern</span>(<span style=color:#a6e22e>st</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec4</span>(<span style=color:#a6e22e>vec3</span>(<span style=color:#a6e22e>step</span>(<span style=color:#a6e22e>st</span>.<span style=color:#a6e22e>x</span>,<span style=color:#a6e22e>st</span>.<span style=color:#a6e22e>y</span>)),<span style=color:#ae81ff>1.0</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//Fuente: https://thebookofshaders.com/09/
+</span></span></span></code></pre></div></div></details><p>Aplicamos el siguiente patron a un cubo:</p><iframe id=procedural_texturing_3 style=width:620px;height:620px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js></script>
+            
+            
+            
+            
+            
+            <script src=/visual_computing/sketches/procedural_texturing_3.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><p>Resultado:</p><iframe id=procedural_texturing_2 style=width:620px;height:620px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.js></script>
+            <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js></script>
+            
+            
+            
+            
+            
+            <script src=/visual_computing/sketches/procedural_texturing_2.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+<details><summary><strong>CODIGO:</strong> Cubo.frag</summary><div class=markdown-inner><p><strong>C</strong>odigo generado usando el editor web de <strong>P5.js</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>ifdef</span> <span style=color:#a6e22e>GL_ES</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>endif</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#960050;background-color:#1e0010>#</span><span style=color:#a6e22e>define</span> <span style=color:#a6e22e>PI</span> <span style=color:#ae81ff>3.14159265359</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>u_resolution</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>u_mouse</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>u_time</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>float</span> <span style=color:#a6e22e>plot</span>(<span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>st</span>, <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>pct</span>){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0.0</span> ;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>st</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>gl_FragCoord</span>.<span style=color:#a6e22e>xy</span><span style=color:#f92672>/</span><span style=color:#a6e22e>u_resolution</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>mt</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec2</span>(<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>u_time</span>),<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>u_time</span>));
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>st</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>*</span><span style=color:#a6e22e>PI</span><span style=color:#f92672>*</span><span style=color:#ae81ff>3.000</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>float</span> <span style=color:#a6e22e>altura</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>abs</span>( <span style=color:#a6e22e>pow</span>(<span style=color:#a6e22e>mt</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>*</span><span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>st</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>*</span><span style=color:#a6e22e>PI</span><span style=color:#f92672>*</span><span style=color:#ae81ff>2.4</span>),<span style=color:#ae81ff>3.0</span>)
+</span></span><span style=display:flex><span>                       <span style=color:#f92672>+</span><span style=color:#a6e22e>pow</span>(<span style=color:#a6e22e>mt</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>*</span><span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>st</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>*</span><span style=color:#a6e22e>PI</span><span style=color:#f92672>*</span><span style=color:#ae81ff>2.040</span>),<span style=color:#ae81ff>2.0</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>vec3</span> <span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec3</span>(<span style=color:#a6e22e>altura</span>);
+</span></span><span style=display:flex><span>	
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>pct</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>plot</span>(<span style=color:#a6e22e>st</span>,<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1.0</span><span style=color:#f92672>-</span><span style=color:#a6e22e>pct</span>)<span style=color:#f92672>*</span><span style=color:#a6e22e>color</span><span style=color:#f92672>+</span><span style=color:#a6e22e>pct</span><span style=color:#f92672>*</span><span style=color:#a6e22e>vec3</span>(<span style=color:#ae81ff>0.524</span>,<span style=color:#ae81ff>0.570</span>,<span style=color:#ae81ff>0.565</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>vec4</span>(<span style=color:#a6e22e>color</span>.<span style=color:#a6e22e>rg</span>,<span style=color:#ae81ff>1.144</span>,<span style=color:#ae81ff>0.944</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><h2 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h2><p>Este no solo es un metodo sencillo sino tambien uno muy practico con el cual se pueden replican un sinfin de texturas.</p><h2 id=referencias>Referencias
+<a class=anchor href=#referencias>#</a></h2><p><a href=https://learn.microsoft.com/en-us/windows/win32/direct3d9/texture-coordinates>https://learn.microsoft.com/en-us/windows/win32/direct3d9/texture-coordinates</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/f827410363e7780f23816a18c8953cedea1835fc title='Last modified by acardenasor | November 28, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural Texturing</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#background>Background</a></li><li><a href=#code>Code</a></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></div></aside></main></body></html>
