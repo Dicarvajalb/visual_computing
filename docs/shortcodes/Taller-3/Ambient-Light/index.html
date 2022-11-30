@@ -1,7 +1,7 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Luz ambiente # La luz ambiente no suele tener un punto de origen definido. Se puede ver como una iluminación en todas direcciones.
 implementación # Cada pixel del objeto es definido mediante la formula
-\[color = ambient * (uMaterialColor * uColor)\] Donde color es el color final del pixel ambient es la cantidad de luminosidad uMaterialColor es el color del pixel original uColor es el color de ambiente elegido Conclusiones # Por su facilidad y rapidez, se podría intentar acoplar a una interfaz de personalización de una aplicación."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-3/Ambient-Light/"><title>Ambient Light | Grupo de estudio</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
-<script defer src=/visual_computing/en.search.min.b9e2b174e48b997808a154abe6b15cd5ec7836d120215462b75f88810dcc8df3.js integrity="sha256-ueKxdOSLmXgIoVSr5rFc1ex4NtEgIVRit1+IgQ3MjfM=" crossorigin=anonymous></script>
+\[color = ambient * (uMaterialColor * uColor)\] Donde color es el color final del pixel ambient es la cantidad de luminosidad uMaterialColor es el color del pixel original uColor es el color de ambiente elegido CODIGO: ambientLight."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-3/Ambient-Light/"><title>Ambient Light | Grupo de estudio</title><link rel=manifest href=/visual_computing/manifest.json><link rel=icon href=/visual_computing/favicon.png type=image/x-icon><link rel=stylesheet href=/visual_computing/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/visual_computing/flexsearch.min.js></script>
+<script defer src=/visual_computing/en.search.min.09525d3456a4016732e8e667bc9dc4000e417780a23061fd5de40a9c445415a1.js integrity="sha256-CVJdNFakAWcy6OZnvJ3EAA5Bd4CiMGH9XeQKnERUFaE=" crossorigin=anonymous></script>
 <link rel=alternate type=application/rss+xml href=https://dicarvajalb.github.io/visual_computing/docs/shortcodes/Taller-3/Ambient-Light/index.xml title="Grupo de estudio"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/visual_computing/><span>Grupo de estudio</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-543c92395a5da43e568c54aed57a7bf6 class=toggle>
 <label for=section-543c92395a5da43e568c54aed57a7bf6 class="flex justify-between"><a href=/visual_computing/docs/shortcodes/Taller-1/>Taller 1</a></label><ul><li><a href=/visual_computing/docs/shortcodes/Taller-1/Convoluciones/>Convoluciones</a></li><li><a href=/visual_computing/docs/shortcodes/Taller-1/Histograma/>Histograma</a></li><li><input type=checkbox id=section-eb58e35b3307a51faa32e78ab05d9c64 class=toggle>
@@ -33,7 +33,111 @@ implementación # Cada pixel del objeto es definido mediante la formula
           <body>
           </body>
         </html>
-      "></iframe><h1 id=conclusiones>Conclusiones
+      "></iframe>
+<details><summary><strong>CODIGO:</strong> ambientLight.js</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lightShader</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>ambient</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preload</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lightShader</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>readShader</span>(<span style=color:#e6db74>&#39;../../../../sketches/shaders/diffuse/ambient.frag&#39;</span>,
+</span></span><span style=display:flex><span>                           { <span style=color:#a6e22e>varyings</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Tree</span>.<span style=color:#a6e22e>NONE</span> });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>600</span>, <span style=color:#ae81ff>450</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// easycam stuff
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>state</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>distance</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>250</span>,           <span style=color:#75715e>// scalar
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>center</span><span style=color:#f92672>:</span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>],       <span style=color:#75715e>// vector
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>rotation</span><span style=color:#f92672>:</span> [<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>],  <span style=color:#75715e>// quaternion
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  };
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createEasyCam</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam</span>.<span style=color:#a6e22e>state_reset</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>state</span>;   <span style=color:#75715e>// state to use on reset (double-click/tap)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam</span>.<span style=color:#a6e22e>setState</span>(<span style=color:#a6e22e>state</span>, <span style=color:#ae81ff>2000</span>); <span style=color:#75715e>// now animate to that state
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>perspective</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorMode</span>(<span style=color:#a6e22e>RGB</span>,<span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// disable p5 lightning
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>noLights</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ambient</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1.0</span>, <span style=color:#ae81ff>0.05</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ambient</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>420</span>, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ambient</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;80px&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ambient</span>.<span style=color:#a6e22e>input</span>(() =&gt; { <span style=color:#a6e22e>lightShader</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;ambient&#39;</span>, <span style=color:#a6e22e>ambient</span>.<span style=color:#a6e22e>value</span>()) });
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lightShader</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;ambient&#39;</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorPicker</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createColorPicker</span>(<span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>));
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>420</span>,<span style=color:#ae81ff>50</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>input</span>(() =&gt; { <span style=color:#a6e22e>lightShader</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;uColor&#39;</span>, 
+</span></span><span style=display:flex><span> [<span style=color:#a6e22e>red</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>green</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>blue</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>1.0</span>]) })
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lightShader</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;uColor&#39;</span>, 
+</span></span><span style=display:flex><span> [<span style=color:#a6e22e>red</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>green</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>blue</span>(<span style=color:#a6e22e>colorPicker</span>.<span style=color:#a6e22e>color</span>()),
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>1.0</span>]) 
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shader</span>(<span style=color:#a6e22e>lightShader</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// ...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// select initial brush
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>120</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>0.8</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>stroke</span>(<span style=color:#e6db74>&#39;magenta&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>grid</span>({ <span style=color:#a6e22e>dotted</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>axes</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>200</span>,<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>200</span>,<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>0.8</span>,<span style=color:#ae81ff>0.3</span>,<span style=color:#ae81ff>0.3</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>200</span>,<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>100</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>200</span>,<span style=color:#ae81ff>200</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>mouseWheel</span>(<span style=color:#a6e22e>event</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//comment to enable page scrolling
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>hexToRgb</span>(<span style=color:#a6e22e>hex</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>hex</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>hex</span>.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>&#39;#&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>bigint</span> <span style=color:#f92672>=</span> parseInt(<span style=color:#a6e22e>hex</span>, <span style=color:#ae81ff>16</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>r</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>bigint</span> <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>16</span>) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>255</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>g</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>bigint</span> <span style=color:#f92672>&gt;&gt;</span> <span style=color:#ae81ff>8</span>) <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>255</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>b</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>bigint</span> <span style=color:#f92672>&amp;</span> <span style=color:#ae81ff>255</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>color</span>(<span style=color:#a6e22e>r</span>, <span style=color:#a6e22e>g</span>, <span style=color:#a6e22e>b</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><h1 id=conclusiones>Conclusiones
 <a class=anchor href=#conclusiones>#</a></h1><ul><li>Por su facilidad y rapidez, se podría intentar acoplar a una interfaz de personalización de una aplicación.</li></ul><h1 id=referencias>Referencias
-<a class=anchor href=#referencias>#</a></h1><blockquote class="book-hint warning"><ul><li>[1] <em>“Reference | p5.js,”</em> <strong>p5js.org.</strong> <a href=https://p5js.org/es/reference/>https://p5js.org/es/reference/</a> (accessed Oct. 18, 2022).</li><li>[2] <em>“p5.treegl,”</em> <strong>GitHub</strong>, Sep. 12, 2022. <a href=https://github.com/VisualComputing/p5.treegl>https://github.com/VisualComputing/p5.treegl</a> (accessed Oct. 18, 2022).</li><li>[3] <em>“Graphics lighting,”</em> <strong>Wikipedia</strong>, Nov. 25, 2022 .https://en.wikipedia.org/wiki/Computer_graphics_lighting (accessed Nov. 25-28, 2022).</li></ul></blockquote></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/2147520e793d0c21b9603d68b62588e876d45cd7 title='Last modified by Diego Carvajal | November 28, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 28, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#luz-ambiente>Luz ambiente</a><ul><li><a href=#implementación>implementación</a></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#referencias>Referencias</a></li></ul></nav></div></aside></main></body></html>
+<a class=anchor href=#referencias>#</a></h1><blockquote class="book-hint warning"><ul><li>[1] <em>“Reference | p5.js,”</em> <strong>p5js.org.</strong> <a href=https://p5js.org/es/reference/>https://p5js.org/es/reference/</a> (accessed Oct. 18, 2022).</li><li>[2] <em>“p5.treegl,”</em> <strong>GitHub</strong>, Sep. 12, 2022. <a href=https://github.com/VisualComputing/p5.treegl>https://github.com/VisualComputing/p5.treegl</a> (accessed Oct. 18, 2022).</li><li>[3] <em>“Graphics lighting,”</em> <strong>Wikipedia</strong>, Nov. 25, 2022 .https://en.wikipedia.org/wiki/Computer_graphics_lighting (accessed Nov. 25-28, 2022).</li></ul></blockquote></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/Dicarvajalb/visual_computing/commit/796c44820891d92f437e28dc5b38e74330e23899 title='Last modified by Diego Carvajal | November 30, 2022' target=_blank rel=noopener><img src=/visual_computing/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 30, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#luz-ambiente>Luz ambiente</a><ul><li><a href=#implementación>implementación</a></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#referencias>Referencias</a></li></ul></nav></div></aside></main></body></html>
